@@ -27,9 +27,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
          */
         http
                 .authorizeHttpRequests()
-                .antMatchers("/account").authenticated()
-                .antMatchers("/balance").authenticated()
-                .antMatchers("/loans").authenticated()
+                .antMatchers("/myAccount").authenticated()
+                .antMatchers("/myBalance").authenticated()
+                .antMatchers("/myLoans").authenticated()
                 .antMatchers("/myCards").authenticated()
                 .antMatchers("/notices").permitAll()
                 .antMatchers("/contact").permitAll()
