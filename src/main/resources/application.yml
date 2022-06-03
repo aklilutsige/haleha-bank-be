@@ -3,7 +3,6 @@ server:
 
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://haleha-db-1.cekteqc93q13.eu-west-3.rds.amazonaws.com:3306/halehabank
     username: admin
     password: adMinHaleha2014
