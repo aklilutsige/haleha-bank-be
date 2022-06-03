@@ -1,12 +1,24 @@
 package com.haleha.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import com.haleha.model.Accounts;
+import com.haleha.model.Customer;
+import com.haleha.repository.AccountsRepository;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class AccountController {
-    @GetMapping("/account")
-    public String getAccount(String input){
-        return "Hear are form account DB";
+    public static final String URL = "/myAccount";
+
+    private final AccountsRepository accountsRepository;
+
+    public AccountController(AccountsRepository accountsRepository) {
+        this.accountsRepository = accountsRepository;
+    }
+
+    @PostMapping(URL)
+    public Accounts getAccount(@RequestBody Customer customer){
+        return accountsRepository.findByCustomerId(customer.getId());
     }
 }

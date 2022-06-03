@@ -18,4 +18,29 @@
 -- );
 --
 -- INSERT IGNORE INTO `users` VALUES (NULL,'happy','12345', 1);
--- INSERT IGNORE INTO `authorities` VALUES (NULL, 'happy', 'write');
+-- INSERT IGNORE INTO  `authorities` VALUES (NULL, 'happy', 'write');
+--
+-- CREATE TABLE `customer` (
+--                             `id` INT NOT NULL AUTO_INCREMENT,
+--                             `email` VARCHAR(45) NOT NULL,
+--                             `pwd` VARCHAR(45) NOT NULL ,
+--                             `role` VARCHAR(45) NOT NULL,
+--                             PRIMARY KEY (`id`)
+-- );
+-- INSERT IGNORE INTO `customer` VALUES (NULL, 'haleha-admin@haleha.com','password', 'admin');
+--
+-- SELECT * FROM customer;
+--
+-- DROP TABLE customer;
+--
+-- CREATE TABLE `customer` (
+--                             `id` INT NOT NULL AUTO_INCREMENT,
+--                             `email` VARCHAR(45) NOT NULL,
+--                             `pwd` VARCHAR(200) NOT NULL ,
+--                             `role` VARCHAR(45) NOT NULL,
+--                             PRIMARY KEY (`id`)
+-- );
+--
+-- INSERT IGNORE INTO `customer` VALUES (NULL, 'haleha@haleha.com','123456', 'admin');
+-- # https://bcrypt-generator.com/ (654321) == ($2a$12$aNP91SYqOOfjGKK1ADzkxuiHU3F84XlZKxHgiszQdICLHh.JHzntK)
+-- INSERT IGNORE INTO `customer` VALUES (NULL, 'admin@haleha.com','$2a$12$aNP91SYqOOfjGKK1ADzkxuiHU3F84XlZKxHgiszQdICLHh.JHzntK', 'admin');

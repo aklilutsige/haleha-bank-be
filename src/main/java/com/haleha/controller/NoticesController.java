@@ -1,15 +1,24 @@
 package com.haleha.controller;
 
-import com.haleha.repository.CustomerRepository;
+import com.haleha.model.Notice;
+import com.haleha.repository.NoticeRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class NoticesController {
-    private CustomerRepository customerRepository;
 
-    @GetMapping("/notices")
-    public String getNotices(String input){
-        return "Connected to Notices data service.";
+    public static final String URL = "/notices";
+    private final NoticeRepository noticeRepository;
+
+    public NoticesController(NoticeRepository noticeRepository) {
+        this.noticeRepository = noticeRepository;
+    }
+
+    @GetMapping(URL)
+    public List<Notice> getNotices(String input){
+        return noticeRepository.findAllActiveNotices();
     }
 }

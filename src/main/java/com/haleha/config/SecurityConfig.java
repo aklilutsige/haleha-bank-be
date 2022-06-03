@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
@@ -30,13 +30,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/account").authenticated()
                 .antMatchers("/balance").authenticated()
                 .antMatchers("/loans").authenticated()
-                .antMatchers("/cards").authenticated()
+                .antMatchers("/myCards").authenticated()
                 .antMatchers("/notices").permitAll()
                 .antMatchers("/contact").permitAll()
                 .and().formLogin()
                 .and().httpBasic();
     }
-    //    @Override
+//        @Override
 //    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 //       auth.inMemoryAuthentication()
 //               .withUser("admin").password("12345").authorities("admin").and()
@@ -60,6 +60,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder(){
-        return NoOpPasswordEncoder.getInstance();
+        return new BCryptPasswordEncoder();
     }
 }
