@@ -10,21 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class CardController {
+public class CardsController {
     public static final String URL = "/myCards";
+
     private final CardsRepository cardsRepository;
 
-    public CardController(CardsRepository cardsRepository) {
+    public CardsController(CardsRepository cardsRepository) {
         this.cardsRepository = cardsRepository;
     }
 
     @PostMapping(URL)
-    public List<Cards> getCArdDetails(@RequestBody Customer customer){
-        List<Cards> cards = cardsRepository.findByCustomerId(customer.getId());
-        if (cards != null){
-            return cards;
-        }else {
-            return null;
-        }
+    public List<Cards> getCardDetails(@RequestBody Customer customer) {
+        return cardsRepository.findByCustomerId(customer.getId());
     }
 }

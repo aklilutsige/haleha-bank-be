@@ -20,7 +20,7 @@ public class BalanceController {
     }
 
     @PostMapping(URL)
-    public List<AccountTransactions> getBalanceDetails(@RequestBody Customer customer){
+    public List<AccountTransactions> getBalanceDetails(@RequestBody Customer customer) {
         return accountTransactionsRepository.findByCustomerIdOrderByTransactionDtDesc(customer.getId());
     }
 }

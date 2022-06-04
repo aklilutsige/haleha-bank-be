@@ -11,6 +11,7 @@ import java.util.List;
 public class NoticesController {
 
     public static final String URL = "/notices";
+
     private final NoticeRepository noticeRepository;
 
     public NoticesController(NoticeRepository noticeRepository) {
@@ -18,7 +19,7 @@ public class NoticesController {
     }
 
     @GetMapping(URL)
-    public List<Notice> getNotices(String input){
+    public List<Notice> getNotices() {
         return noticeRepository.findAllActiveNotices();
     }
 }

@@ -18,7 +18,7 @@ public class AccountController {
     }
 
     @PostMapping(URL)
-    public Accounts getAccount(@RequestBody Customer customer){
+    public Accounts getAccountDetails(@RequestBody Customer customer) {
         return accountsRepository.findByCustomerId(customer.getId());
     }
 }
